@@ -10,4 +10,4 @@ before_install:
 
 # When our tests are going to be executed
 script:
-  - docker run chivanillo/docker-react npm run test -- --coverage
+  - docker run -e CI=true chivanillo/docker-react npm run test -- --coverage
