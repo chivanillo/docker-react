@@ -1,0 +1,13 @@
+sudo: required # Super user level permission needed for docker
+
+# Need a copy of docker ready to go
+services:
+  - docker
+
+# Steps that need to occur before deploy our project/our test are run
+before_install:
+  - docker build -t chivanillo/docker-react -f Dockerfile.dev .
+
+# When our tests are going to be executed
+script:
+  - docker run chivanillo/docker-react npm run test -- --coverage
